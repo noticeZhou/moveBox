@@ -1,7 +1,12 @@
 h1 {
 	text-align: center;
 }
+.wrap {
+	width: 1200px;
+	margin: 0 auto;
+}
 #box-map {
+	float: left;
 	width: 640px;
 	height: 640px;
 }
@@ -38,9 +43,17 @@ h1 {
 	left: 41px;
 	z-index: 1;
 }
-.turn-right {
-	transform: rotate(-90deg);
-}
-.turn-left {
-	transform: rotate(90deg);
+#textIn {
+	width: 530px;
+	height: 600px;
+	margin-top: 40px;
+	margin-left: 20px;
+	background-color: #b79bbe;
+	border: 1px solid #b79bbe;
+	outline: none;
+	border-radius: 0 5px 5px 0;
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 1.5em;
+	color: #fff;
 }
