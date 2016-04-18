@@ -43,17 +43,35 @@ h1 {
 	left: 41px;
 	z-index: 1;
 }
-#textIn {
-	width: 530px;
+.edit-wrap {
+	float: right;
+	width: 540px;
+	height: 640px;
+}
+.edit-nav {
+	height: 40px;
+}
+#num-wrap {
+	float: left;
+	width: 30px;
 	height: 600px;
-	margin-top: 40px;
-	margin-left: 20px;
-	background-color: #b79bbe;
-	border: 1px solid #b79bbe;
-	outline: none;
-	border-radius: 0 5px 5px 0;
+	background-color: #b78eee;
+}
+.edit-text {
 	font-size: 16px;
 	font-weight: bold;
 	line-height: 1.5em;
 	color: #fff;
+}
+.text-num {
+	text-align: center;
+}
+#textIn {
+	box-sizing: border-box;
+	width: 400px;
+	height: 600px;
+	background-color: #b79bbe;
+	border: 1px solid #b79bbe;
+	outline: none;
+	border-radius: 0 5px 5px 0;
 }

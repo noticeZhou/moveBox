@@ -16,6 +16,10 @@ window.onload = function() {
 	setTimeout(function() {
 		move_box.go();
 	},4000);
+
+	var c_box = document.getElementById("textIn");
+	var eBox = new editBox(c_box);
+	eBox.init();
 }
 
 var boxMap = function() {
@@ -53,7 +57,6 @@ var boxMap = function() {
 		box_board.appendChild(board_frag);
 	}
 }
-
 
 var moveBox = function() {
 	this.oBox = document.getElementById("move-box");
@@ -111,5 +114,32 @@ var moveBox = function() {
 					this.oBox.style.top = this.oBox_top+"px";
 					break;
 		}
+	}
+}
+
+var editBox = function(box) {
+	this.box = box;
+	this.init = function() {
+		var newLine = this.newLine;
+		var box = this.box;
+		EventUtil.addHandler(this.box,"keyup",function(ev) {
+			ev = EventUtil.getEvent(ev);
+			if(ev.keyCode === 13) {
+				console.log("come in");
+				newLine(box);
+			}	
+		});
+	}
+	this.newLine = function(box) {
+		var bValue = box.value.split("\n");
+		var numWrap = document.getElementById("num-wrap");
+		var numP = document.createElement("p");
+		numP.className = "text-num edit-text";
+		console.log(bValue.length);
+		numP.innerHTML = bValue.length;
+		numWrap.appendChild(numP);
+	} 
+	this.delLine = function(box) {
+
 	}
 }
