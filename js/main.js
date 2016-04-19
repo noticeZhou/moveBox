@@ -119,27 +119,39 @@ var moveBox = function() {
 
 var editBox = function(box) {
 	this.box = box;
+	this.num = box.value.split("\n").length;
 	this.init = function() {
 		var newLine = this.newLine;
+		var delLine = this.delLine;
 		var box = this.box;
+		var this_num = this.num;
 		EventUtil.addHandler(this.box,"keyup",function(ev) {
 			ev = EventUtil.getEvent(ev);
-			if(ev.keyCode === 13) {
-				console.log("come in");
-				newLine(box);
+			var bValue = box.value.split("\n");
+			if(ev.keyCode === 13 ) {
+				this_num++;
+				newLine(this_num);
+			} else if(ev.keyCode === 8 && bValue.length < this_num) {
+				console.log(bValue);
+				this_num--;
+				delLine(this_num);
 			}	
 		});
 	}
-	this.newLine = function(box) {
-		var bValue = box.value.split("\n");
+	this.newLine = function(num) {
 		var numWrap = document.getElementById("num-wrap");
 		var numP = document.createElement("p");
 		numP.className = "text-num edit-text";
-		console.log(bValue.length);
-		numP.innerHTML = bValue.length;
+		numP.innerHTML = num;
 		numWrap.appendChild(numP);
 	} 
-	this.delLine = function(box) {
-
+	this.delLine = function(num) {
+		var numWrap = document.getElementById("num-wrap");
+		var numP_list = numWrap.getElementsByTagName("p");
+		var numP_length = numP_list.length;
+		while(num < numP_length) {
+			numP_length--;
+			numWrap.removeChild(numP_list[numP_length]);
+		}
 	}
 }
